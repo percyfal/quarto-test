@@ -1,0 +1,14 @@
+project:
+  title: "quarto-test"
+format:
+  html:
+    date: last-modified
+    date-format: "DD-MMM-YYYY"
+knitr:
+  opts_chunk:
+    fig-format: svg
+    engine.opts:
+      dvisvgm.opts: --font-format=woff
+      template: tikzfig.tex
+
+    

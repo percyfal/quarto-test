@@ -1,0 +1,34 @@
+---
+title: "quarto-test"
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into
+a finished document. To learn more about Quarto see
+<https://quarto.org>.
+
+## TiKZ picture
+
+cf <https://stackoverflow.com/questions/71760913/using-tikz-in-quarto-presentation>
+
+
+
+```{r, engine = 'tikz'}
+#| eval: false
+#| echo: true
+\begin{tikzpicture}
+ \draw (0,0) circle (1cm);
+\end{tikzpicture}
+```
+ 
+Converting to svg <https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/#update-easier-font-embedding>
+
+```{r, engine = 'tikz', fig.ext="svg"}
+#| label: tikz-figure
+#| echo: true
+#| eval: true
+\begin{tikzpicture}
+ \draw (0,0) circle (1cm);
+\end{tikzpicture}
+```
