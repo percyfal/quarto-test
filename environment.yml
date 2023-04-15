@@ -4,4 +4,4 @@ channels:
   - defaults
 dependencies:
   - r-rmarkdown
-  - r-rpdftools
+  - r-pdftools
