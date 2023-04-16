@@ -51,6 +51,13 @@ jobs:
         run: |
           echo "TEXINPUTS=$TEXINPUTS:$GITHUB_WORKSPACE/src/latex" >> $GITHUB_ENV
 
+      - name: Test TeXLive installation
+        run: |
+          kpsewhich tex.pro
+          dvisvgm -V1  | grep kpathsea
+          ldd `which dvisvgm` | grep kpathsea
+          ldd `which kpsewhich` | grep kpathsea
+
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         if: ${{ github.event_name == 'push' }}

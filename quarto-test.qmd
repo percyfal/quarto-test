@@ -12,8 +12,6 @@ a finished document. To learn more about Quarto see
 
 cf <https://stackoverflow.com/questions/71760913/using-tikz-in-quarto-presentation>
 
-
-
 ```{r, engine = 'tikz'}
 #| eval: false
 #| echo: true
