@@ -33,9 +33,9 @@ jobs:
           echo "$(dirname $(which R))" >> $GITHUB_PATH
           quarto check
 
-
       - name: Install dvisvgm
         run: |
+          sudo apt update
           sudo apt-get install dvisvgm
           which dvisvgm
           echo $TEXINPUTS
