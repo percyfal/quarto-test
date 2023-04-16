@@ -1,5 +1,13 @@
 project:
+  type: website
   title: "quarto-test"
+  output-dir: _site
+  render:
+    - "*.qmd"
+
+website:
+  title: "Quarto test"
+  
 format:
   html:
     date: last-modified
