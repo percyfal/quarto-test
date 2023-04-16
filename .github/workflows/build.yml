@@ -33,12 +33,23 @@ jobs:
           echo "$(dirname $(which R))" >> $GITHUB_PATH
           quarto check
 
+      - name: Install TinyTeX
+        run: |
+          R -e "tinytex::install_tinytex()"
+          R -e "tinytex::tlmgr_update()"
+          R -e "tinytex::reinstall_tinytex()"
+          R -e "tinytex::tinytex_root()"
+
       - name: Install dvisvgm
         run: |
           sudo apt update
           sudo apt-get install dvisvgm
           which dvisvgm
           echo $TEXINPUTS
+
+      - name: "Set environment variables"
+        run: |
+          echo "TEXINPUTS=$TEXINPUTS:$GITHUB_WORKSPACE/src/latex" >> $GITHUB_ENV
 
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
