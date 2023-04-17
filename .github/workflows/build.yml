@@ -44,7 +44,6 @@ jobs:
           sudo apt update
           sudo apt-get install dvisvgm
           which dvisvgm
-          sudo cp /usr/bin/dvisvgm /home/runner/.TinyTeX/x86_64-linux/bin/
           echo $TEXINPUTS
 
       - name: "Set environment variables"
@@ -63,6 +62,7 @@ jobs:
           kpsewhich tex.pro
           echo dvisvgm -V1  | grep kpathsea
           dvisvgm -V1  | grep kpathsea
+          sudo cp /usr/bin/dvisvgm /home/runner/.TinyTeX/x86_64-linux/bin/
           echo ldd `which dvisvgm` | grep kpathsea
           ldd `which dvisvgm` | grep kpathsea
           echo ldd `which kpsewhich` | grep kpathsea
