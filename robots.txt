@@ -1,0 +1,1 @@
+Sitemap: https://github.com/percyfal/quarto-test/sitemap.xml

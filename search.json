@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "quarto-test.html",
+    "href": "quarto-test.html",
+    "title": "quarto-test",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "quarto-test.html#tikz-picture",
+    "href": "quarto-test.html#tikz-picture",
+    "title": "quarto-test",
+    "section": "TiKZ picture",
+    "text": "TiKZ picture\ncf https://stackoverflow.com/questions/71760913/using-tikz-in-quarto-presentation\n\n\\begin{tikzpicture}\n \\draw (0,0) circle (1cm);\n\\end{tikzpicture}\n\nConverting to svg https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/#update-easier-font-embedding\n\n\\begin{tikzpicture}\n \\draw (0,0) circle (1cm);\n\\end{tikzpicture}"
+  }
+]
