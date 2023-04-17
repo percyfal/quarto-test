@@ -20,11 +20,10 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           miniconda-version: "latest"
-          activate-environment: pgip
+          channels: conda-forge,defaults
+          channel-priority: true
+          mamba-version: "*"
           environment-file: environment.yml
-          use-only-tar-bz2: true
-          auto-activate-base: false
-
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
@@ -45,13 +44,13 @@ jobs:
           sudo apt update
           sudo apt-get install dvisvgm
           which dvisvgm
-          sudo cp /usr/bin/dvisvgm /home/runner/bin
+          sudo cp /usr/bin/dvisvgm /home/runner/.TinyTeX/x86_64-linux/bin
           echo $TEXINPUTS
 
       - name: "Set environment variables"
         run: |
           echo "TEXINPUTS=$TEXINPUTS:$GITHUB_WORKSPACE/src/latex" >> $GITHUB_ENV
-          echo "PATH=/home/runner/bin:/home/runner/.local/bin:$PATH" >> $GITHUB_ENV
+          echo "PATH=/home/runner/.TinyTeX/x86_64-linux/bin:/home/runner/bin:/home/runner/.local/bin:$PATH" >> $GITHUB_ENV
 
       - name: Test TeXLive installation
         run: |
