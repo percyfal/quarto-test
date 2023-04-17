@@ -32,13 +32,18 @@ jobs:
           echo "$(dirname $(which R))" >> $GITHUB_PATH
           quarto check
 
-      - name: Install TinyTeX
-        run: |
-          R -e "tinytex::install_tinytex()"
-          R -e "tinytex::tlmgr_update()"
-          R -e "tinytex::reinstall_tinytex()"
-          R -e "tinytex::tinytex_root()"
+      # - name: Install TinyTeX
+      #   run: |
+      #     R -e "tinytex::install_tinytex()"
+      #     R -e "tinytex::tlmgr_update()"
+      #     R -e "tinytex::reinstall_tinytex()"
+      #     R -e "tinytex::tinytex_root()"
 
+      - name: Install texlive
+        run: |
+          sudo apt update
+          sudo apt-get install texlive
+          
       - name: Install dvisvgm
         run: |
           sudo apt update
