@@ -60,6 +60,14 @@ jobs:
           ldd `which kpsewhich` | grep kpathsea
           dvisvgm -V1  | grep kpathsea
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 15
+        if: ${{ failure() }}
+        with: 
+          limit-access-to-actor: true
+
+
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         if: ${{ github.event_name == 'push' }}
