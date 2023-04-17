@@ -42,7 +42,7 @@ jobs:
       - name: Install texlive
         run: |
           sudo apt update
-          sudo apt-get install texlive
+          sudo apt-get install texlive texlive-latex-extra
           
       - name: Install dvisvgm
         run: |
