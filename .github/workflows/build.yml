@@ -51,23 +51,6 @@ jobs:
           echo "TEXINPUTS=$TEXINPUTS:$GITHUB_WORKSPACE/src/latex" >> $GITHUB_ENV
           echo "PATH=/home/runner/.TinyTeX/bin/x86_64-linux:/home/runner/bin:$PATH" >> $GITHUB_ENV
 
-      - name: Test TeXLive installation
-        run: |
-          kpsewhich -var-value SELFAUTOLOC
-          # sudo cp /usr/bin/dvisvgm /home/runner/.TinyTeX/bin/x86_64-linux
-          kpsewhich tex.pro
-          ldd `which dvisvgm` | grep kpathsea
-          ldd `which kpsewhich` | grep kpathsea
-          dvisvgm -V1  | grep kpathsea
-
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 15
-        if: ${{ failure() }}
-        with: 
-          limit-access-to-actor: true
-
-
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         if: ${{ github.event_name == 'push' }}
@@ -76,3 +59,10 @@ jobs:
           path: .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 15
+        if: ${{ failure() }}
+        with: 
+          limit-access-to-actor: true
