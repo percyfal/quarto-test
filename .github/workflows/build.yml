@@ -50,7 +50,7 @@ jobs:
       - name: "Set environment variables"
         run: |
           echo "TEXINPUTS=$TEXINPUTS:$GITHUB_WORKSPACE/src/latex" >> $GITHUB_ENV
-          echo "PATH=/home/runner/.local/bin:$PATH" >> $GITHUB_ENV
+          echo "PATH=/home/runner/.TinyTeX/bin:/home/runner/.local/bin:$PATH" >> $GITHUB_ENV
 
       - name: Test TeXLive installation
         run: |
