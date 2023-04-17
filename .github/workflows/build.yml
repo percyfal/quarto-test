@@ -45,22 +45,28 @@ jobs:
           sudo apt update
           sudo apt-get install dvisvgm
           which dvisvgm
+          sudo cp /usr/bin/dvisvgm /home/runner/bin
           echo $TEXINPUTS
 
       - name: "Set environment variables"
         run: |
           echo "TEXINPUTS=$TEXINPUTS:$GITHUB_WORKSPACE/src/latex" >> $GITHUB_ENV
-          echo "PATH=/home/runner/bin:/home/runner/.TinyTeX/bin:/home/runner/.local/bin:$PATH" >> $GITHUB_ENV
+          echo "PATH=/home/runner/bin:/home/runner/.local/bin:$PATH" >> $GITHUB_ENV
 
       - name: Test TeXLive installation
         run: |
           find /home/runner/.TinyTeX -name kpsewhich
-          find /home/runner/.local -name kpsewhich
           find /home/runner/bin -name kpsewhich
           echo $PATH
+          echo kpsewhich -var-value SELFAUTOLOC
+          kpsewhich -var-value SELFAUTOLOC
+          echo kpsewhich tex.pro
           kpsewhich tex.pro
+          echo dvisvgm -V1  | grep kpathsea
           dvisvgm -V1  | grep kpathsea
+          echo ldd `which dvisvgm` | grep kpathsea
           ldd `which dvisvgm` | grep kpathsea
+          echo ldd `which kpsewhich` | grep kpathsea
           ldd `which kpsewhich` | grep kpathsea
 
       - name: Publish to GitHub Pages
