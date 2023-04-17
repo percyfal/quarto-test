@@ -53,6 +53,8 @@ jobs:
 
       - name: Test TeXLive installation
         run: |
+          find /home/runner/.TinyTeX -name kpsewhich
+          echo $PATH
           kpsewhich tex.pro
           dvisvgm -V1  | grep kpathsea
           ldd `which dvisvgm` | grep kpathsea
