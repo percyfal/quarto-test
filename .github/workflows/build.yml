@@ -50,12 +50,13 @@ jobs:
       - name: "Set environment variables"
         run: |
           echo "TEXINPUTS=$TEXINPUTS:$GITHUB_WORKSPACE/src/latex" >> $GITHUB_ENV
-          echo "PATH=/home/runner/.TinyTeX/bin:/home/runner/.local/bin:$PATH" >> $GITHUB_ENV
+          echo "PATH=/home/runner/bin:/home/runner/.TinyTeX/bin:/home/runner/.local/bin:$PATH" >> $GITHUB_ENV
 
       - name: Test TeXLive installation
         run: |
           find /home/runner/.TinyTeX -name kpsewhich
           find /home/runner/.local -name kpsewhich
+          find /home/runner/bin -name kpsewhich
           echo $PATH
           kpsewhich tex.pro
           dvisvgm -V1  | grep kpathsea
