@@ -55,7 +55,7 @@ jobs:
         run: |
           echo kpsewhich -var-value SELFAUTOLOC
           kpsewhich -var-value SELFAUTOLOC
-          sudo cp /usr/bin/dvisvgm /home/runner/.TinyTeX/bin/x86_64-linux
+          # sudo cp /usr/bin/dvisvgm /home/runner/.TinyTeX/bin/x86_64-linux
           echo kpsewhich tex.pro
           kpsewhich tex.pro
           echo dvisvgm -V1  | grep kpathsea
