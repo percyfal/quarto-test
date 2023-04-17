@@ -53,17 +53,12 @@ jobs:
 
       - name: Test TeXLive installation
         run: |
-          echo kpsewhich -var-value SELFAUTOLOC
           kpsewhich -var-value SELFAUTOLOC
           # sudo cp /usr/bin/dvisvgm /home/runner/.TinyTeX/bin/x86_64-linux
-          echo kpsewhich tex.pro
           kpsewhich tex.pro
-          echo dvisvgm -V1  | grep kpathsea
-          dvisvgm -V1  | grep kpathsea
-          echo ldd `which dvisvgm` | grep kpathsea
           ldd `which dvisvgm` | grep kpathsea
-          echo ldd `which kpsewhich` | grep kpathsea
           ldd `which kpsewhich` | grep kpathsea
+          dvisvgm -V1  | grep kpathsea
 
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
